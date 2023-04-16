@@ -16,9 +16,11 @@ public class FileInvoker {
   }
 
   /**
-   * Executes the currently set command.
+   * Executes the currently set command with exception
+   * and set up the terminals for the better performance.
    */
-  public void executeCommand() {
+  public void executeCommand() throws Exception {
+    Thread.sleep(3000);
     command.execute();
   }
 }
