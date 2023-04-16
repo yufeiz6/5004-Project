@@ -8,7 +8,7 @@ requests, queue or log requests, and support undoable operations.
 
 ...
 
-![Command Pattern diagram](./Desktop/WechatIMG206.jpeg)
+![Command Pattern diagram](Images/patternDiagram.jpeg)
 
 ### How the pattern works?
 ...
