@@ -3,7 +3,7 @@
 by Yufei Zhang, Zhen Yu Wang, Yi Zheng
 
 ## Pattern Description
-**The Command Pattern** encapsulates a request as an object, thereby letting you parameterize other objects with different
+**The Command Pattern** encapsulates a request as an object, thereby letting us parameterize other objects with different
 requests, queue or log requests, and support undoable operations.
 
 ...
@@ -27,3 +27,5 @@ requests, queue or log requests, and support undoable operations.
 ### How to run the code?
 ...
 ## UML diagram
+
+## Reference
