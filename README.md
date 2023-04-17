@@ -65,15 +65,40 @@ call the undo or redo command objects, then popping them off from the stacks.
 
 ## Code Description
 
-...
-
 ### How the code works?
 
-...
+The code for our project is used for the file management system.
+Command interface:This Java code defines an interface called "Command" in the package "FileManagement". This interface represents an action to be executed in the context of a file management system. It  has a single method ‘execute()’ without arguments and returned value and throws an exception when necessary.
+
+CreateFileCommand:
+This Java code defines a class called ‘CreateFileCommand’ as implementation of the ‘Command’ interface. This class can be used as a command object in a file management system to create a file with a given name. The class has a single instance variable called ’fileName’ storing the name of the file to be created. The constructor takes a single argument, the file name.
+If the file is successfully created, the message ‘File created successfully!’ will be printed out. If the file already exists, the method throws an Exception with the message ‘File already exists!’.
+
+DeleteFileCommand:
+This Java code defines a class called "DeleteFileCommand" in the package "FileManagement", which implements the "Command" interface. This class can be used as a command object in a file management system to delete a file with a given file name. The class has a single instance variable called "fileName", which stores the name of the file to be deleted. The constructor takes a single argument, the file name.
+If the file exists, the method calls the "delete()" method on the File object to delete the file. If the file is successfully deleted, the method prints a message saying so. If the file does not exist, the method throws an Exception with the message "File does not exist!".
+
+RenameFileCommand:
+This Java code defines a class called "RenameFileCommand" in the package "FileManagement", which implements the "Command" interface and provides an implementation of the execute() method.
+It then checks whether the file exists using the exists() method. If the file exists, it creates a new File object with the newName parameter and renames the file using the renameTo() method.
+If the renaming is successful, the method prints out "File rename successfully!" to the console. If the renaming fails, the method throws an exception with the message "Failed to rename file!". If the file does not exist, the method throws an exception with the message "File does not exist!".
+
+FileInvoker:
+The FileInvoker class is responsible for invoking a command in the context of a file management system.
+The Thread.sleep(3000) in the executeCommand method is used for the slow show of the change when execution.
+
+Driver:
+This program demonstrates the usage of the Command pattern in a file management system. The main method creates a FileInvoker object and executes several commands on it, including creating and renaming files, and deleting files. If any of these commands fail, an exception will be thrown and caught in a try-catch block, with the error message printed.
+
 
 ### How to run the code?
 
-...
+Click the run in the drive and the change of files can be observed in the current path.
+The program starts by creating a FileInvoker object, which will be used to execute the commands. Then it creates three CreateFileCommand objects to create three different files named "file.txt", "file2.txt", and "file3.txt". Each command is set on the FileInvoker object, and then the executeCommand() method is called to execute the command.
+After creating the files, the program renames two of them using RenameFileCommand objects. The first file "file.txt" is renamed to "newFile.txt", and the second file "file2.txt" is renamed to "newFile2.txt". Again, each command is set on the FileInvoker object and executed.
+Finally, the program deletes the file "newFile.txt" using a DeleteFileCommand object. The command is set on the FileInvoker object and executed.
+If any of the commands fail, an exception will be thrown and caught in the try-catch block, and the error message will be printed.
+
 
 ## UML diagram
 
