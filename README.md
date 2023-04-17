@@ -80,24 +80,30 @@ call the undo or redo command objects, then popping them off from the stacks.
 ![UML diagram](Images/UML)
 
 - Our driver class acts as the client which is responsible for creating concrete command and setting
-its receiver.
+  its receiver.
 
 - The Java.io.File we imported acts as the receiver and it knows how to perform the work needed to
-carry out the request.
+  carry out the request.
 
 - The FileInvoker class is our invoker and it holds a command and act at some point asks the command
-to carry out a request by calling its execute() method.
+  to carry out a request by calling its execute() method.
 
 - The Command declares an interface for all commands and a command is invoked through the execute()
-method, which asks a receiver to perform an action.
+  method, which asks a receiver to perform an action.
 
-- RenameFileCommand, CreateFileCommand, and DeleteFileCommand are the concrete classes implements the
-Command interface. They defines the binding between an action and a receiver. The invoker makes a
-request by calling execute() and those concrete classes carry it out by calling actions on the
-receiver.
+- RenameFileCommand, CreateFileCommand, and DeleteFileCommand are the concrete classes implements
+  the
+  Command interface. They defines the binding between an action and a receiver. The invoker makes a
+  request by calling execute() and those concrete classes carry it out by calling actions on the
+  receiver.
 
 ## Reference
 
 Head First Design Patterns [Book]. (n.d.).
 Www.oreilly.com. https://www.oreilly.com/library/view/head-first-design/0596007124/
+
+Command. (2014). Refactoring.guru. https://refactoring.guru/design-patterns/command
+
+Command Design Pattern | DigitalOcean. (n.d.).
+Www.digitalocean.com. https://www.digitalocean.com/community/tutorials/command-design-pattern
 
