@@ -38,6 +38,10 @@ In GUI applications, the command pattern can be used to implement menu buttons, 
 
 In a program that supports undo/redo operations across multiple levels, the command pattern can be used to implement an undo/redo method for each command action object. In such a design, the program can use stacks to separately store a history of commands that were called, along with their associated parameters. When the user calls undo/redo, the program simply pops the most recent command object from the stack and calls its undo/redo method. Doing so provides the program with a clear separation of concerns between the command and the underlying logic of the operation, making it easier to add new actions without affecting the existing functionalities
 
+### An example using this pattern
+
+For a real implementation example, let’s say there is a file management system that creates, deletes, and renames a file. Using the command design pattern, there would be 3 concrete command classes for each of these actions that contain the logic to perform them on a receiver. For example, a createFile concrete command class might have an execute method to call the create file action in the receiver, it might also have an undo method to call the delete file action in the receiver. When called, the concrete command class creates a new command object for this action. On the other hand, the receiver class contains methods to actually perform these actions when it is called by the concrete command class. Finally, the invoker class would contain a method to run the command objects that were created, such as the create, delete, and rename command objects. The invoker class would also keep track of the executed or undone commands history on separate stacks, and use methods to call the undo or redo command objects, then popping them off from the stacks.
+
 ## Code Description
 
 ...
